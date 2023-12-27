@@ -21,28 +21,35 @@
 
 html {
     font-family: RobotoSlab;
-
+    height: 100vh;
+    width: 100%;
 }
 
 body {
     width: 100%;
-    height: max(100vh, 800px);
-    background-color: var(--background);
+    height: 100vh;
+    background-color: var(--background-light);
     margin: 0;
     display: grid;
     grid-template-columns: minmax(300px, 1fr) 4fr;
-    grid-template-rows: minmax(200px, 1fr) 4fr;
+    grid-template-rows: 1fr 4fr;
     color: var(--text);
 }
 
 
 .sidebar {
+    max-height: 100%;
     background-color: var(--background);
     grid-row: 1 / 3;
 
     display: grid;
-    grid-template-rows: 1fr 10fr;
+    grid-template-rows: 1fr 6fr;
     gap: 50px;
+    overflow: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 .menu-header {
@@ -104,12 +111,13 @@ body {
 
 
 .header {
+    height: 100%;
     background-color: var(--background-lighter);
     grid-column: 2 / 3;
 
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr min(10px, 1fr);
     padding: 0 40px;
     place-items: center;
 }
@@ -194,11 +202,6 @@ body {
     gap: 20px;
 }
 
-.greetings-image {
-    height: 80px;
-    width: 80px;
-}
-
 .greetings {
     cursor: default;
 }
@@ -238,6 +241,7 @@ body {
 
 
 .main {
+    max-height: 100%;
     background-color: var(--background-light);
     grid-column: 2 / 3;
     grid-row: 2;
